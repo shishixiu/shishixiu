@@ -1,0 +1,62 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# File: .github/workflows/youth_gain.yml
+
+name: 中青看看赚
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '55 15 * * *'
+  watch:
+    types: started
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+      YOUTH_START: ${{ secrets.YOUTH_START }}
+      YOUTH_END: ${{ secrets.YOUTH_END }}
+      YOUTH_START2: ${{ secrets.YOUTH_START2 }}
+      YOUTH_END2: ${{ secrets.YOUTH_END2 }}
+      YOUTH_START3: ${{ secrets.YOUTH_START3 }}
+      YOUTH_END3: ${{ secrets.YOUTH_END3 }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: npm install
+        run: |
+          npm install
+          
+      - name: '运行 【中青看看赚任务】'
+        if: env.YOUTH_START       
+        run: |
+          node Task/youth_gain.js
+        env:
+          YOUTH_START: ${{ secrets.YOUTH_START }}
+          YOUTH_END: ${{ secrets.YOUTH_END }}
+
+          
+      - name: '运行 【中青看看赚任务2】'
+        if: env.YOUTH_START2
+        run: |
+          node Task/youth_gain.js
+        env:
+          DEFAULT_BRANCH: main
+          YOUTH_START: ${{ secrets.YOUTH_START2 }}
+          YOUTH_END: ${{ secrets.YOUTH_END2 }}
+          
+      - name: '运行 【中青看看赚任务2】'
+        if: env.YOUTH_START3
+        run: |
+          node Task/youth_gain.js
+        env:
+          DEFAULT_BRANCH: main
+          YOUTH_START: ${{ secrets.YOUTH_START3 }}
+          YOUTH_END: ${{ secrets.YOUTH_END3 }}
+
