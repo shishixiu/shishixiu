@@ -32,18 +32,3 @@
 
 ***
 
-#### 开发者不易,请赏杯茶水费
-<div align=center><img width="200" height="200" src="https://gitee.com/Sunert/ProxyConfig/raw/master/QuantumultX/Rules/Images/Complimentcode.jpeg"/></div>
-<br>
-
----
-
-### 特别感谢：
-
-  * [@chavyleung](https://github.com/chavyleung)
-
-  * [@NobyDa](https://github.com/NobyDa)
-
-  * [@lxk0301](https://github.com/lxk0301)
-
-  * [@id77_Github](https://github.com/id77)
