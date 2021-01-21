@@ -3,7 +3,7 @@ const fs = require('fs')
 const download = require('download')
 
 const $ = new Env('滴滴出行签到');
-const notify = $.isNode() ? require('./Task/sendNotify') : '';
+const notify = $.isNode() ? require('Task/sendNotify') : '';
 // 公共变量
 const DIDI_TOKEN = process.env.DIDI_TOKEN
 const DIDI_CITY = process.env.DIDI_CITY
@@ -15,7 +15,7 @@ async function downFile () {
 }
 
 async function changeFiele () {
-    let content = await fs.readFileSync('./Task/DiDi/DiDi_new.js', 'utf8')
+    let content = await fs.readFileSync('Task/DiDi/DiDi_new.js', 'utf8')
     content = content.replace(/(=.*i".*$|$.i".*=)/i, "= process.env.DIDI_TOKEN")
     content = content.replace(/(=.*c.*$|$.c.*=)")/i, "= process.env.DIDI_CITY")
     await fs.writeFileSync( './DiDi_new.js', content, 'utf8')
@@ -43,7 +43,7 @@ async function start() {
     await changeFiele();
     console.log('替换变量完毕')
     // 执行
-    await exec("node ./Task/DiDi/DiDi_new.js >> result.txt");
+    await exec("node Task/DiDi/DiDi_new.js >> result.txt");
     console.log('执行完毕')
     const path = "./result.txt";
     let content = "";
