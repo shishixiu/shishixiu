@@ -19,7 +19,7 @@ jobs:
     env:
       DiDi: ${{ secrets.DiDi }}
       DiDi_city: ${{ secrets.DiDi_city }}
-      Didi_noaff: ${{ secrets.@Didi.noaff }}
+      Didi_noaff: ${{ secrets.@noaff }}
           
     steps:
       - uses: actions/checkout@v1
