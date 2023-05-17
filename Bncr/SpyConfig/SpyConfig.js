@@ -845,6 +845,10 @@ let RspyList = {
             Name: 'KR',
             Id: '-1001659538110',
         },
+        {
+            Name: 'tg红灯区dev线报群',
+            Id: '-1001895018795',
+        },
     ],
 
     //非静默触发消息多少秒撤回 0不撤回
@@ -887,4 +891,3 @@ let RspyList = {
 module.exports = {
     RspyList,
 };
-
