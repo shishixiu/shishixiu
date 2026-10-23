@@ -47,7 +47,10 @@
           "desc": "留空 = config.sh；改别的文件才需要填"
         }
       ],
-      "author": "@shishixiu"
+      "author": "@shishixiu",
+      "icons": [
+        "https://user-images.githubusercontent.com/22700758/191449379-f9f56204-0e31-4a16-be5a-331f52696a73.png"
+      ]
     },
     {
       "id": "mt_qx_capture",
