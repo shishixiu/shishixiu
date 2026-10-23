@@ -623,7 +623,8 @@ async function onRequest(req) {
     markTry(fp, r.ok);
     saveDisplay(c, nick, r.detail, r.ok);
     // ★ 每次真正执行都弹（含「无变化」）；值相同也只是多覆盖一次，没有坏处
-    notify(r.ok ? '✅ ' + r.detail : '❌ ' + r.detail, notifyBody(c, r.detail, nick));
+    // ★ 成功：结果已在副标题，正文只留账号 + 凭证；失败：原因放正文
+    notify(r.ok ? '✅ ' + r.detail : '❌ ' + r.detail, notifyBody(c, r.ok ? '' : r.detail, nick));
     return { hit: true, result: r };
   } catch (e) {
     markTry(fp, false);
@@ -642,7 +643,11 @@ function notify(sub, body) {
 }
 
 /** 通知正文：哪个号（昵称优先，取不到回落 userid）+ 凭证 + 结果 */
-function notifyBody(c, detail, nick) {
+/** 通知正文：哪个号 + 凭证。
+ *  ★ 不再拼 detail —— 成功时它已经在副标题里了（如「✅ 无变化」），重复显示两遍很啰嗦。
+ *   只有失败时把具体原因传进来（副标题只有「❌ 失败」，原因必须留在正文）。
+ */
+function notifyBody(c, extra, nick) {
   var full = CFG.NOTIFY_FULL;
   var p = [];
   if (nick) p.push(nick);
@@ -650,7 +655,7 @@ function notifyBody(c, detail, nick) {
   if (c.unionid) p.push('unionid=' + (full ? c.unionid : c.unionid.slice(0, 8) + '…'));
   else if (c.uuid) p.push('uuid=' + (full ? c.uuid : '…' + String(c.uuid).slice(-8)));
   p.push('token=' + (full ? c.token : mask(c.token)));
-  p.push(detail || '');
+  if (extra) p.push(extra);
   return p.join(' · ');
 }
 
