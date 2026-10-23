@@ -1,0 +1,148 @@
+{
+  "id": "mt.qx.capture.sub",
+  "name": "shishixiu 脚本配置",
+  "author": "@shishixiu",
+  "icon": "https://avatars.githubusercontent.com/u/47021717?s=400&u=1e0ffd6260eee2aa55984de8926534867ccff779&v=4",
+  "apps": [
+    {
+      "id": "qinglong",
+      "name": "青龙面板",
+      "keys": [
+        "MT_QL_HOST",
+        "MT_QL_CLIENT_ID",
+        "MT_QL_CLIENT_SECRET",
+        "MT_QL_FILE"
+      ],
+      "settings": [
+        {
+          "id": "MT_QL_HOST",
+          "name": "青龙地址",
+          "val": "",
+          "type": "text",
+          "placeholder": "http://你的青龙地址:5700",
+          "desc": "不带结尾斜杠也可以；手机需与青龙在同一局域网"
+        },
+        {
+          "id": "MT_QL_CLIENT_ID",
+          "name": "Client ID",
+          "val": "",
+          "type": "text",
+          "placeholder": "应用管理 → 新建应用 得到的 client_id",
+          "desc": "青龙 → 应用管理 → 新建应用"
+        },
+        {
+          "id": "MT_QL_CLIENT_SECRET",
+          "name": "Client Secret",
+          "val": "",
+          "type": "text",
+          "placeholder": "client_secret",
+          "desc": "只保存在本机 BoxJS 里，不会外传"
+        },
+        {
+          "id": "MT_QL_FILE",
+          "name": "写入的配置文件",
+          "val": "",
+          "type": "text",
+          "placeholder": "config.sh",
+          "desc": "留空 = config.sh；改别的文件才需要填"
+        }
+      ],
+      "author": "@shishixiu"
+    },
+    {
+      "id": "mt_qx_capture",
+      "name": "美团 Token",
+      "keys": [
+        "MT_NOTIFY",
+        "MT_NOTIFY_FULL",
+        "MT_ALLOW",
+        "MT_STATE",
+        "MT_LAST_TOKEN",
+        "MT_LAST_UNIONID",
+        "MT_LAST_USERID",
+        "MT_LAST_NICK",
+        "MT_LAST_RESULT",
+        "MT_LAST_TS"
+      ],
+      "settings": [
+        {
+          "id": "MT_NOTIFY",
+          "name": "同步时弹通知",
+          "val": true,
+          "type": "boolean",
+          "desc": "每次抓到都会同步并弹一条（值相同也弹，只是一次覆盖）"
+        },
+        {
+          "id": "MT_NOTIFY_FULL",
+          "name": "通知显示完整 token",
+          "val": false,
+          "type": "boolean",
+          "desc": "关闭时通知里只显示 token 指纹（防锁屏泄露）；打开后显示完整值，通知会变长"
+        },
+        {
+          "id": "MT_ALLOW",
+          "name": "抓取范围（正则）",
+          "val": "^https?://freelance\\.meituan\\.com/api/freelance/",
+          "type": "text",
+          "desc": "默认只认蛙趣兼职板块，一般不用改"
+        },
+        {
+          "id": "MT_STATE",
+          "name": "⓪ 同步状态",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入：上次同步的 token 指纹与时间"
+        },
+        {
+          "id": "MT_LAST_NICK",
+          "name": "① 账号昵称",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入"
+        },
+        {
+          "id": "MT_LAST_USERID",
+          "name": "② userid",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入"
+        },
+        {
+          "id": "MT_LAST_UNIONID",
+          "name": "③ unionid",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入，即青龙里的 MT_UNIONID"
+        },
+        {
+          "id": "MT_LAST_TOKEN",
+          "name": "④ token",
+          "val": "",
+          "type": "textarea",
+          "rows": 4,
+          "autoGrow": true,
+          "desc": "自动写入，即青龙里的 MT_TOKEN，可直接复制"
+        },
+        {
+          "id": "MT_LAST_RESULT",
+          "name": "⑤ 最近一次同步结果",
+          "val": "",
+          "type": "text",
+          "desc": "如「已写入 1 行」「无变化」「失败：…」"
+        },
+        {
+          "id": "MT_LAST_TS",
+          "name": "⑥ 最近同步时间",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入"
+        }
+      ],
+      "author": "@shishixiu",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/meituan.png",
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/meituan.png"
+      ]
+    }
+  ]
+}
