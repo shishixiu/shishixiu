@@ -1,0 +1,10 @@
+#!name=鸭
+#!desc=抓鸭
+#!author=@shishixiu
+
+[rewrite_local]
+^https:\/\/api\.kuaishouzt\.com\/rest\/zt\/appsupport\/ url script-request-header https://raw.githubusercontent.com/shishixiu/shishixiu/refs/heads/main/kkk/duck_chance.js
+^https:\/\/nebula\.kuaishou\.com\/rest\/n\/encourage\/game\/ url script-request-header https://raw.githubusercontent.com/shishixiu/shishixiu/refs/heads/main/kkk/duck_chance.js
+
+[mitm]
+hostname = api.kuaishouzt.com, nebula.kuaishou.com

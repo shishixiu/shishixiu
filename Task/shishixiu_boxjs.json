@@ -1,0 +1,337 @@
+{
+  "id": "mt.qx.capture.sub",
+  "name": "shishixiu 脚本配置",
+  "author": "@shishixiu",
+  "icon": "https://avatars.githubusercontent.com/u/47021717?s=400&u=1e0ffd6260eee2aa55984de8926534867ccff779&v=4",
+  "apps": [
+    {
+      "id": "qinglong",
+      "name": "青龙面板",
+      "keys": [
+        "MT_QL_HOST",
+        "MT_QL_CLIENT_ID",
+        "MT_QL_CLIENT_SECRET",
+        "MT_QL_FILE"
+      ],
+      "settings": [
+        {
+          "id": "MT_QL_HOST",
+          "name": "青龙地址",
+          "val": "",
+          "type": "text",
+          "placeholder": "http://你的青龙地址:5700",
+          "desc": "不带结尾斜杠也可以；手机需与青龙在同一局域网"
+        },
+        {
+          "id": "MT_QL_CLIENT_ID",
+          "name": "Client ID",
+          "val": "",
+          "type": "text",
+          "placeholder": "应用管理 → 新建应用 得到的 client_id",
+          "desc": "青龙 → 应用管理 → 新建应用"
+        },
+        {
+          "id": "MT_QL_CLIENT_SECRET",
+          "name": "Client Secret",
+          "val": "",
+          "type": "text",
+          "placeholder": "client_secret",
+          "desc": "只保存在本机 BoxJS 里，不会外传"
+        },
+        {
+          "id": "MT_QL_FILE",
+          "name": "写入的配置文件",
+          "val": "",
+          "type": "text",
+          "placeholder": "config.sh",
+          "desc": "留空 = config.sh；改别的文件才需要填"
+        }
+      ],
+      "author": "@shishixiu",
+      "icons": [
+        "https://user-images.githubusercontent.com/22700758/191449379-f9f56204-0e31-4a16-be5a-331f52696a73.png"
+      ]
+    },
+    {
+      "id": "mt_qx_capture",
+      "name": "美团 Token",
+      "keys": [
+        "MT_NOTIFY",
+        "MT_NOTIFY_FULL",
+        "MT_ALLOW",
+        "MT_STATE",
+        "MT_LAST_TOKEN",
+        "MT_LAST_UNIONID",
+        "MT_LAST_USERID",
+        "MT_LAST_NICK",
+        "MT_LAST_RESULT",
+        "MT_LAST_TS"
+      ],
+      "settings": [
+        {
+          "id": "MT_NOTIFY",
+          "name": "同步时弹通知",
+          "val": true,
+          "type": "boolean",
+          "desc": "每次抓到都会同步并弹一条（值相同也弹，只是一次覆盖）"
+        },
+        {
+          "id": "MT_NOTIFY_FULL",
+          "name": "通知显示完整 token",
+          "val": false,
+          "type": "boolean",
+          "desc": "关闭时通知里只显示 token 指纹（防锁屏泄露）；打开后显示完整值，通知会变长"
+        },
+        {
+          "id": "MT_ALLOW",
+          "name": "抓取范围（正则）",
+          "val": "^https?://freelance\\.meituan\\.com/api/freelance/",
+          "type": "text",
+          "desc": "默认只认蛙趣兼职板块，一般不用改"
+        },
+        {
+          "id": "MT_STATE",
+          "name": "⓪ 同步状态",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入：上次同步的 token 指纹与时间"
+        },
+        {
+          "id": "MT_LAST_NICK",
+          "name": "① 账号昵称",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入"
+        },
+        {
+          "id": "MT_LAST_USERID",
+          "name": "② userid",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入"
+        },
+        {
+          "id": "MT_LAST_UNIONID",
+          "name": "③ unionid",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入，即青龙里的 MT_UNIONID"
+        },
+        {
+          "id": "MT_LAST_TOKEN",
+          "name": "④ token",
+          "val": "",
+          "type": "textarea",
+          "rows": 4,
+          "autoGrow": true,
+          "desc": "自动写入，即青龙里的 MT_TOKEN，可直接复制"
+        },
+        {
+          "id": "MT_LAST_RESULT",
+          "name": "⑤ 最近一次同步结果",
+          "val": "",
+          "type": "text",
+          "desc": "如「已写入 1 行」「无变化」「失败：…」"
+        },
+        {
+          "id": "MT_LAST_TS",
+          "name": "⑥ 最近同步时间",
+          "val": "",
+          "type": "text",
+          "desc": "自动写入"
+        }
+      ],
+      "author": "@shishixiu",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/meituan.png",
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/meituan.png"
+      ]
+    },
+    {
+      "id": "duck",
+      "name": "抓鸭子",
+      "keys": [
+        "duck_ck",
+        "duck_ck_info",
+        "duck_ck_ts",
+        "duck_notify",
+        "duck_success_tries",
+        "duck_daily_once",
+        "duck_last",
+        "duck_day",
+        "duck_chance_notify",
+        "duck_rounds",
+        "duck_duck_repeat",
+        "duck_food_report",
+        "duck_round_gap",
+        "duck_auto_sign",
+        "duck_egg_target",
+        "duck_egg_max",
+        "duck_rid",
+        "duck_lv_wait",
+        "duck_lim",
+        "duck_rids"
+      ],
+      "settings": [
+        {
+          "id": "duck_ck",
+          "name": "① Cookie（自动写入）",
+          "val": "",
+          "type": "textarea",
+          "rows": 5,
+          "autoGrow": true,
+          "desc": "抓取脚本自动写入：快手全量 Cookie（62 项 / 约 3042 字符）。跑通关（viviv）4 项就够，但查剩余次数（nebula）要求 ≥53 项，所以统一存全量。也可手动粘贴整串 Cookie"
+        },
+        {
+          "id": "duck_ck_info",
+          "name": "② 账号信息（自动写入）",
+          "val": "",
+          "type": "text",
+          "desc": "uid / did / 抓取来源域名"
+        },
+        {
+          "id": "duck_ck_ts",
+          "name": "③ 抓取时间（自动写入）",
+          "val": "",
+          "type": "text",
+          "desc": "毫秒时间戳"
+        },
+        {
+          "id": "duck_notify",
+          "name": "抓取与运行时弹通知",
+          "val": true,
+          "type": "boolean",
+          "desc": "关闭后只在 QX 日志里输出"
+        },
+        {
+          "id": "duck_success_tries",
+          "name": "success 上报次数",
+          "val": "0",
+          "type": "text",
+          "placeholder": "0",
+          "desc": "0 = 智能：拿到礼包就停，没拿到且本局该发奖才补 1 次。填 N(≥1) = 强制连发 N 次（原版是 2，实测第 2 次只是「已发放」回显，不会双倍）"
+        },
+        {
+          "id": "duck_daily_once",
+          "name": "当天成功过就跳过",
+          "val": false,
+          "type": "boolean",
+          "desc": "关：每次触发都跑（还能赚金币）；开：当天成功一次后不再跑"
+        },
+        {
+          "id": "duck_auto_sign",
+          "name": "跑前自动签到",
+          "val": true,
+          "type": "boolean",
+          "desc": "每天跑抓鸭前先签到（7 天签到，奖励饲料 / 凑齐次数 / 打乱次数道具）。⚠ 签到奖励**不是游戏次数**，只是道具，不影响 playTimes"
+        },
+        {
+          "id": "duck_round_gap",
+          "name": "局间等待（秒）",
+          "val": "31",
+          "type": "text",
+          "placeholder": "31",
+          "desc": "服务端 intervalTime=30000，别调太小，否则第 2 局可能被拒"
+        },
+        {
+          "id": "duck_rounds",
+          "name": "跑几局",
+          "val": "auto",
+          "type": "text",
+          "placeholder": "auto",
+          "desc": "auto = 跑满剩余次数（推荐，能把每天免费 3 次用干净）｜1 = 只跑一局｜N = 跑 N 局（上限 5）"
+        },
+        {
+          "id": "duck_duck_repeat",
+          "name": "每关抓鸭上报次数",
+          "val": "1",
+          "type": "text",
+          "placeholder": "1",
+          "desc": "每关 report/duck 连发几次。默认 1 = 与真实客户端一致（每消掉一组鸭子报一次）。填 N>1 用于验证「同关重复上报是否重复加金币」，属实验开关，可能触发服务端校验"
+        },
+        {
+          "id": "duck_food_report",
+          "name": "每关补报饲料次数",
+          "val": "auto",
+          "type": "text",
+          "placeholder": "0",
+          "desc": "auto = 照客户端节奏把饲料报满（每关 floor(饲料数/阈值) 次，默认）。0 = 完全跳过（旧行为，会触发 100000120 数据校验）。填 N = 每关固定报 N 次"
+        },
+        {
+          "id": "duck_last",
+          "name": "④ 上次运行结果（自动写入）",
+          "val": "",
+          "type": "text",
+          "desc": "JSON：时间 / 是否成功 / roundId / 金币 / 礼包件数"
+        },
+        {
+          "id": "duck_day",
+          "name": "⑤ 上次成功日期（自动写入）",
+          "val": "",
+          "type": "text",
+          "desc": "供「当天成功过就跳过」判断"
+        },
+        {
+          "id": "duck_chance_notify",
+          "name": "查次数时弹通知",
+          "val": true,
+          "type": "boolean",
+          "desc": "关：只在 QX 日志里输出抓鸭次数 / 广告进度 / 喂鸭状态"
+        },
+        {
+          "id": "duck_egg_target",
+          "name": "刷蛋目标（颗）",
+          "val": "0",
+          "type": "text",
+          "placeholder": "0",
+          "desc": "0 = 关闭（只跑正常局）。填 N = 跑完正常局后用同一 roundId 反复上报刷 N 颗蛋。⚠ 每颗约 100 次上报（1000 鸭鸭币自动换 1 蛋），1 颗约 8~15 秒。机制：report/duck 的 level 服务端不校验，每次 +10 币。属高强度请求，别设太大"
+        },
+        {
+          "id": "duck_egg_max",
+          "name": "刷蛋硬上限（颗）",
+          "val": "10",
+          "type": "text",
+          "placeholder": "10",
+          "desc": "防止误填大数字把账号刷爆。duck_egg_target 超过此值会被压到该值"
+        },
+        {
+          "id": "duck_rid",
+          "name": "上次 roundId（自动）",
+          "val": "",
+          "type": "text",
+          "placeholder": "自动写入",
+          "desc": "脚本自动保存。次数用完（playTimes=0）时靠它继续刷蛋 —— 服务端不校验开局有效期。换账号/换天会自动更新"
+        },
+        {
+          "id": "duck_lv_wait",
+          "name": "每关上报前等待（秒）",
+          "val": "0",
+          "type": "text",
+          "placeholder": "0",
+          "desc": "默认 0 = 立即上报。若仍报 100000120，说明服务端还要求「本关最短耗时」，设成 15~30 再试。等待期间 leftTimeMs 会跟着真实时间递减，不会自相矛盾"
+        },
+        {
+          "id": "duck_lim",
+          "name": "关卡时限 ms（自动/可手填）",
+          "val": "",
+          "type": "text",
+          "placeholder": "留空=300000",
+          "desc": "每关 timeLimit（毫秒）。正常跑一局后脚本会自动写入真实值（实测该活动为 480000）。手动填 duck_rid 时建议一起填 480000；留空则兜底 300000（只会让声称的剩余时间偏少，安全方向）"
+        },
+        {
+          "id": "duck_rids",
+          "name": "roundId 列表（自动累积）",
+          "val": "",
+          "type": "text",
+          "placeholder": "自动写入",
+          "desc": "格式 rid:时间戳，逗号分隔，最多 8 个。每跑一局 init 自动追加一个。★ 多个 rid 会并行刷蛋，实测 3 个 rid = 3 倍速（限流粒度是 roundId，不是 IP）。时间戳只用来算 leftTimeMs，填不准也不影响（服务端不校验 roundId 有效期）"
+        }
+      ],
+      "author": "@shishixiu",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/kuaishou.png",
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/kuaishou.png"
+      ]
+    }
+  ]
+}
