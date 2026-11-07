@@ -1,0 +1,3 @@
+^https?:\/\/coral2\.quark\.cn\/quark\/welfare\/v3\/queryPlanList url response-body "canDraw"\s*:\s*false response-body "canDraw":true
+^https?:\/\/coral2\.quark\.cn\/quark\/welfare\/v3\/queryPlanList url response-body "limitCode"\s*:\s*"[^"]*" response-body "limitCode":""
+^https?:\/\/coral2\.quark\.cn\/quark\/welfare\/v3\/queryPlanList url response-body "assigned"\s*:\s*\d+ response-body "assigned":0
